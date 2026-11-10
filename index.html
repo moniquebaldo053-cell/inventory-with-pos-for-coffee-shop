@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f4f3ed">
+	<title>Brewing Point Coffee Shop</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section class="login-screen" id="login-screen">
+		<div class="login-story">
+			<div class="brand"><div class="brand-mark" aria-hidden="true">BP</div><div><div class="brand-name">Brewing Point Coffee Shop</div><div class="brand-caption">Your Daily Sip & Bite</div></div></div>
+			<div class="login-copy"><div class="eyebrow">Welcome to Brewing Point Coffee Shop</div><h1>Ready to serve today’s customers</h1><p>Brewed with passion, served with care. We offer fresh coffee, delicious drinks, and a welcoming space to start your day right.</p></div>
+			<div class="login-foot">Brewing Point Coffee Shop · Staff and admin workspace</div>
+		</div>
+		<div class="login-side"><div class="login-card">
+			<section class="auth-page" id="register-page" aria-labelledby="register-title" hidden>
+				<div class="eyebrow">Get started</div>
+				<h2 id="register-title" tabindex="-1">Create your account.</h2>
+				<p>Join Brewing Point Coffee Shop by registering below.</p>
+				<form class="login-form" id="register-form">
+					<label><span class="field-label">Full name</span><input class="field-input" name="registerName" autocomplete="name" required maxlength="40" placeholder="Your name"></label>
+					<label><span class="field-label">Email address</span><input class="field-input" name="registerEmail" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+					<label><span class="field-label">Password</span><input class="field-input" id="register-password" name="registerPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="200" placeholder="At least 8 characters"></label>
+					<label><span class="field-label">Confirm password</span><input class="field-input" id="register-password-confirm" name="registerPasswordConfirm" type="password" autocomplete="new-password" required minlength="8" maxlength="200" placeholder="Re-enter your password"></label>
+					<button class="button" type="submit">Create account</button>
+				</form>
+				<div class="auth-switch">Already have an account? <button class="auth-link" type="button" data-auth-page="login">Log in</button></div>
+				<div class="login-disclaimer">Your account is saved securely in the shop database.</div>
+			</section>
+			<section class="auth-page" id="login-page" aria-labelledby="login-title">
+				<div class="eyebrow" id="login-eyebrow">Staff access</div>
+				<h2 id="login-title" tabindex="-1">Welcome back.</h2>
+				<p id="login-description">Enter your account email and password to open the shop dashboard.</p>
+				<div class="login-role-switch" role="group" aria-label="Choose sign-in type">
+					<button class="login-role-button active" type="button" data-login-role="staff" aria-pressed="true">Staff login</button>
+					<button class="login-role-button" type="button" data-login-role="admin" aria-pressed="false">Admin login</button>
+				</div>
+				<form class="login-form" id="staff-login-form" data-login-form="staff">
+
+    <label>
+        <span class="field-label">
+            Email Address
+        </span>
+
+        <input
+            class="field-input"
+            name="email"
+            type="email"
+            required
+            placeholder="Enter your email">
+    </label>
+
+    <label>
+        <span class="field-label">
+            Password
+        </span>
+
+        <input
+            class="field-input"
+            name="password"
+            type="password"
+            required
+            placeholder="Enter your password">
+    </label>
+
+    <button class="button" type="submit">
+        Login
+        <span aria-hidden="true">→</span>
+    </button>
+
+</form>
+				<form class="login-form" id="admin-login-form" data-login-form="admin" hidden>
+					<label><span class="field-label">Admin email</span><input class="field-input" name="email" type="email" autocomplete="username" required maxlength="254" placeholder="Admin email"></label>
+					<label><span class="field-label">Admin password</span><input class="field-input" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="200" placeholder="Admin password"></label>
+					<button class="button" type="submit">Open admin dashboard <span aria-hidden="true">→</span></button>
+				</form>
+				<div class="auth-switch">Need an account? <button class="auth-link" type="button" data-auth-page="register">Register</button></div>
+				<div class="login-disclaimer">Ask your administrator to assign your account the correct access role.</div>
+			</section>
+		</div></div>
+	</section>
+	<div class="app-shell" id="app-shell" hidden>
+		<aside class="sidebar">
+			<div class="brand">
+				<div class="brand-mark" aria-hidden="true">BP</div>
+				<div><div class="brand-name">Brewing Point Coffee Shop</div><div class="brand-caption">Your Daily Sip & Bite</div></div>
+			</div>
+			<div class="nav-label" id="nav-label">Workspace</div>
+			<nav class="nav-list" id="main-navigation" aria-label="Main navigation">
+				<button class="nav-button active" data-view="overview"><span class="nav-icon">◫</span>Dashboard</button>
+				<button class="nav-button" data-view="inventory"><span class="nav-icon">▤</span>INVENTORY</button>
+				<button class="nav-button" data-view="pos"><span class="nav-icon">＋</span>POS</button>
+				<button class="nav-button" data-view="sales"><span class="nav-icon">↗</span>SALES REPORT</button>
+			</nav>
+			<div class="sidebar-bottom">
+				<div class="shop-status"><span class="status-dot" id="database-status-dot"></span><span id="database-status">Database disconnected</span></div>
+				<div class="sidebar-date" id="sidebar-date"></div>
+			</div>
+		</aside>
+		<main class="main">
+			<header class="topbar">
+				<div class="crumb">Brewing Point Coffee Shop<span aria-hidden="true">/</span> <span id="current-section">Overview</span></div>
+				<div class="topbar-right"><div class="notification-wrap"><button class="notification-button" id="notification-button" type="button" aria-label="Stock notifications" aria-expanded="false" aria-controls="notification-panel"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg><span class="notification-count" id="notification-count" aria-live="polite" hidden></span></button><section class="notification-panel" id="notification-panel" aria-label="Low stock notifications" hidden><div class="notification-panel-head"><strong>Stock notifications</strong><span id="notification-summary"></span></div><div class="notification-list" id="notification-list"></div><button class="notification-footer" id="notification-inventory-button" type="button">Open inventory →</button></section></div><span class="today-label" id="top-date"></span><span class="avatar" id="staff-avatar" aria-label="Staff member">BP</span><button class="button secondary small" id="logout-button" type="button">Sign out</button></div>
+			</header>
+
+			<section class="page active" id="page-overview">
+				<div class="page-heading"><div><h1 id="overview-title">Good Day</h1><p class="subheading" id="overview-description"></p></div><button class="button" id="overview-action" data-go="pos"><span aria-hidden="true">＋</span> New sale</button></div>
+				<div class="metric-grid" id="overview-metrics"></div>
+				<div class="dashboard-grid">
+					<section class="panel"><div class="panel-head"><h2 class="panel-title" id="overview-left-title">Stock to watch</h2><button class="panel-link" id="overview-left-link" data-go="inventory">View inventory →</button></div><div class="alert-list" id="overview-alerts"></div></section>
+					<section class="panel"><div class="panel-head"><h2 class="panel-title" id="overview-right-title">Recent sales</h2><button class="panel-link" id="overview-right-link" data-go="sales">All sales →</button></div><div class="activity-list" id="overview-sales"></div></section>
+				</div>
+			</section>
+
+			<section class="page" id="page-pos">
+				<div class="page-heading"><div><h1>Point of sale</h1><p class="subheading">Tap an item to add it to the current order.</p></div></div>
+				<div class="pos-layout">
+					<section>
+						<div class="catalog-tools">
+							<label class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input class="search-input" id="pos-search" type="search" placeholder="Find a menu item…" aria-label="Search menu"></label>
+							<div class="category-tabs" id="category-tabs" aria-label="Menu categories"></div>
+						</div>
+						<div class="product-grid" id="product-grid"></div>
+					</section>
+					<aside class="panel cart-panel">
+						<div class="cart-heading"><div class="cart-heading-line"><h2 class="panel-title">Current order</h2><span class="cart-count" id="cart-count">0</span></div><div class="order-number" id="order-number"></div></div>
+						<div class="cart-items" id="cart-items"></div>
+						<div class="cart-bottom" id="cart-bottom"></div>
+					</aside>
+				</div>
+			</section>
+
+			<section class="page" id="page-inventory">
+				<div class="page-heading"><div><h1>Raw material inventory</h1><p class="subheading">Track ingredients and supplies. Update quantities manually as stock changes.</p></div><button class="button" id="add-material-button"><span aria-hidden="true">＋</span> Add raw material</button></div>
+				<div id="inventory-notice"></div>
+				<section class="panel">
+					<div class="panel-head"><h2 class="panel-title">Raw materials</h2><div class="inventory-tools"><label class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input class="search-input" id="inventory-search" type="search" placeholder="Search raw materials…" aria-label="Search raw materials"></label><select class="select-input" id="inventory-filter" aria-label="Filter stock" style="width:auto;min-width:132px"><option value="all">All materials</option><option value="low">Low stock</option><option value="healthy">In stock</option></select></div></div>
+					<div class="table-wrap"><table class="data-table"><thead><tr><th>Material</th><th>Category</th><th>On hand</th><th>Reorder at</th><th>Status</th><th>Action</th></tr></thead><tbody id="inventory-rows"></tbody></table></div>
+				</section>
+				<section class="panel menu-catalog-panel" id="menu-catalog-panel">
+					<div class="panel-head"><div><h2 class="panel-title">Menu catalog</h2><p class="item-meta">Menu items are not stock-tracked; configure their ingredients in recipes below.</p></div><button class="button secondary small" id="add-product-button" type="button">＋ Add menu item</button></div>
+					<div class="table-wrap"><table class="data-table"><thead><tr><th>Menu item</th><th>Category</th><th>Price</th><th>Action</th></tr></thead><tbody id="menu-product-rows"></tbody></table></div>
+				</section>
+				<section class="panel recipe-panel" id="recipe-panel">
+					<div class="panel-head"><div><h2 class="panel-title">Menu recipes</h2><p class="item-meta">Save ingredient quantities for reference. Completing an order does not change raw-material stock.</p></div></div>
+					<div class="recipe-editor">
+						<label><span class="field-label">Menu item</span><select class="select-input" id="recipe-product-select" aria-label="Choose menu item"></select></label>
+						<div class="recipe-guidance" id="recipe-guidance"></div>
+						<div class="recipe-rows" id="recipe-rows"></div>
+						<div class="recipe-actions"><button class="button secondary" id="add-recipe-ingredient" type="button">＋ Add ingredient</button><button class="button" id="save-recipe-button" type="button">Save recipe</button></div>
+					</div>
+				</section>
+			</section>
+
+			<section class="page" id="page-archive">
+				<div class="page-heading"><div><h1>Archive</h1><p class="subheading">Deleted products are kept here and can be restored to inventory.</p></div></div>
+				<section class="panel"><div class="panel-head"><h2 class="panel-title">Archived products</h2><span class="analytics-caption" id="archive-summary"></span></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Category</th><th>Price</th><th>Archived</th><th>Action</th></tr></thead><tbody id="archive-rows"></tbody></table></div></section>
+			</section>
+
+			<section class="page" id="page-sales">
+				<div class="page-heading"><div><h1>Sales report</h1><p class="subheading">A running record of completed orders.</p></div></div>
+				<section class="panel"><div class="panel-head"><h2 class="panel-title">Transactions</h2><div class="sales-summary" id="sales-summary"></div></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Receipt</th><th>Time</th><th>Items</th><th>Payment</th><th>Total</th><th>Action</th></tr></thead><tbody id="sales-rows"></tbody></table></div></section>
+			</section>
+
+			<section class="page" id="page-stock-report">
+				<div class="page-heading"><div><h1>Stock report</h1><p class="subheading">Current raw-material quantities and reorder levels.</p></div></div>
+				<div class="metric-grid analytics-metrics" id="stock-report-metrics"></div>
+				<section class="panel"><div class="panel-head"><h2 class="panel-title">Stock levels</h2></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Item</th><th>Category</th><th>On hand</th><th>Reorder at</th><th>Status</th></tr></thead><tbody id="stock-report-rows"></tbody></table></div></section>
+			</section>
+
+			<section class="page" id="page-analytics">
+				<div class="page-heading"><div><h1>Analytics</h1><p class="subheading">Understand your sales performance and popular items.</p></div><label class="analytics-period-label">Period<select class="select-input" id="analytics-period" aria-label="Analytics period"><option value="7">Last 7 days</option><option value="30">Last 30 days</option><option value="all">All time</option></select></label></div>
+				<div class="metric-grid analytics-metrics" id="analytics-metrics"></div>
+				<div class="analytics-grid">
+					<section class="panel"><div class="panel-head"><h2 class="panel-title">Daily sales</h2><span class="analytics-caption" id="analytics-chart-caption"></span></div><div class="sales-chart" id="analytics-chart" role="img" aria-label="Daily sales chart"></div></section>
+					<section class="panel"><div class="panel-head"><h2 class="panel-title">Best sellers</h2><span class="analytics-caption">By units sold</span></div><div class="top-products" id="analytics-products"></div></section>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<dialog class="modal" id="item-dialog">
+		<form class="modal-body" id="item-form">
+			<div class="modal-head" style="margin:-17px -21px 2px"><div><div class="eyebrow">Menu catalog</div><h2 id="item-dialog-title">Add menu item</h2></div><button class="modal-close" type="button" data-close-dialog aria-label="Close">×</button></div>
+			<label><span class="field-label">Item name</span><input class="field-input" name="name" required maxlength="80" placeholder="e.g. Flat white"></label>
+			<label><span class="field-label">Category</span><select class="select-input" name="category"><option>Milk Tea</option><option>Cheesecake</option><option>Cold Brew</option><option>Hot Brew</option><option>Fruit Tea</option><option>Soda Fizz</option><option>Milk Series</option><option>Frappe</option><option>Signature Drinks</option><option>Add-ons</option><option>Siomai</option><option>Burgers</option><option>Hotdogs</option><option>French Fries</option><option>Snack Combos</option><option>Other</option></select></label>
+			<label><span class="field-label">Price (₱)</span><input class="field-input" name="price" type="number" min="1" step="1" required placeholder="180"></label>
+			<div class="modal-actions"><button class="button secondary" type="button" data-close-dialog>Cancel</button><button class="button" id="item-save-button" type="submit">Save item</button></div>
+		</form>
+	</dialog>
+	<dialog class="modal" id="material-dialog">
+		<form class="modal-body" id="material-form">
+			<div class="modal-head" style="margin:-17px -21px 2px"><div><div class="eyebrow">Stock room</div><h2 id="material-dialog-title">Add raw material</h2></div><button class="modal-close" type="button" data-close-dialog aria-label="Close">×</button></div>
+			<label><span class="field-label">Material name</span><input class="field-input" name="name" required maxlength="80" placeholder="e.g. Non dairy creamer"></label>
+			<label><span class="field-label">Category</span><select class="select-input" name="category"><option>OTHERS</option><option>MISC</option><option>LCC</option><option>LEKYAN</option><option>SHOPEE</option><option>FRUIT TEA SYRUPS</option><option>JAMS</option><option>POWDERS</option><option>BARS</option><option>SYRUP</option><option>PLASTIC &amp; STRAWS</option><option>SIOMAI</option><option>SIOPAO</option><option>BURGER</option><option>HOTDOG</option><option>CONDIMENTS FOR BURGER &amp; HOTDOG, FRIES</option><option>FRIES</option><option>OTHER</option></select></label>
+			<label><span class="field-label">Supplier (optional)</span><input class="field-input" name="supplier" maxlength="80" placeholder="e.g. Unitex"></label>
+			<label><span class="field-label">Brand (optional)</span><input class="field-input" name="brand" maxlength="80" placeholder="e.g. Siomai King"></label>
+			<label><span class="field-label">Unit (used in recipes)</span><input class="field-input" name="unit" required maxlength="20" placeholder="e.g. kg, bottle, piece"></label>
+			<label><span class="field-label">On hand</span><input class="field-input" name="stock" type="number" min="0" step="any" required value="0"></label>
+			<label><span class="field-label">Low stock alert at</span><input class="field-input" name="threshold" type="number" min="0" step="any" required value="0"></label>
+			<label><span class="field-label">Expiry date (optional)</span><input class="field-input" name="expiresOn" type="date"></label>
+			<div class="modal-actions"><button class="button secondary" type="button" data-close-dialog>Cancel</button><button class="button" id="material-save-button" type="submit">Save material</button></div>
+		</form>
+	</dialog>
+	<dialog class="modal" id="restock-dialog">
+		<form class="modal-body" id="restock-form">
+			<div class="modal-head" style="margin:-17px -21px 2px"><div><div class="eyebrow">Stock room</div><h2>Receive stock</h2></div><button class="modal-close" type="button" data-close-dialog aria-label="Close">×</button></div>
+			<p class="subheading" id="restock-item-name"></p>
+			<label><span class="field-label">Quantity received</span><input class="field-input" name="quantity" type="number" min="0.001" step="any" required value="1"></label>
+			<div class="modal-actions"><button class="button secondary" type="button" data-close-dialog>Cancel</button><button class="button" type="submit">Update stock</button></div>
+		</form>
+	</dialog>
+	<dialog class="modal" id="delete-confirm-dialog" aria-labelledby="delete-confirm-title">
+		<div class="modal-body">
+			<div class="modal-head" style="margin:-17px -21px 2px"><div><div class="eyebrow">Confirm action</div><h2 id="delete-confirm-title">Move product to archive?</h2></div><button class="modal-close" type="button" data-close-dialog aria-label="Close">×</button></div>
+			<p class="subheading" id="delete-confirm-message"></p>
+			<div class="modal-actions"><button class="button secondary" type="button" data-close-dialog>Cancel</button><button class="button danger" id="confirm-delete-button" type="button">Move to archive</button></div>
+		</div>
+	</dialog>
+	<dialog class="modal" id="checkout-dialog">
+		<form class="modal-body" id="checkout-form">
+			<div class="modal-head" style="margin:-17px -21px 2px"><div><div class="eyebrow">Complete order</div><h2>Take payment</h2></div><button class="modal-close" type="button" data-close-dialog aria-label="Close">×</button></div>
+			<div class="notice" style="margin:0"><span aria-hidden="true">◎</span><span>Order total <strong id="checkout-total"></strong></span></div>
+			<label><span class="field-label">Payment method</span><select class="select-input" name="payment"><option>Cash</option><option>Card</option><option>Mobile payment</option></select></label>
+			<div class="modal-actions"><button class="button secondary" type="button" data-close-dialog>Back to order</button><button class="button" type="submit">Complete sale</button></div>
+		</form>
+	</dialog>
+	<dialog class="modal receipt-dialog" id="receipt-dialog" aria-labelledby="receipt-title">
+		<div class="receipt-content">
+			<div class="receipt-head">
+				<div class="brand-mark" aria-hidden="true">BP</div>
+				<h2 id="receipt-title">Brewing Point Coffee Shop</h2>
+				<p>Your Daily Sip &amp; Bite</p>
+			</div>
+			<div class="receipt-details" id="receipt-details"></div>
+			<div class="receipt-lines" id="receipt-lines"></div>
+			<div class="receipt-total" id="receipt-total"></div>
+			<p class="receipt-thanks">Thank you for visiting!</p>
+		</div>
+		<div class="modal-actions receipt-actions">
+			<button class="button secondary" type="button" data-close-dialog>Close</button>
+			<button class="button" id="print-receipt-button" type="button">Print receipt</button>
+		</div>
+	</dialog>
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
+	<script src="script.js?v=2026110602" defer></script>
+</body>
+</html>
